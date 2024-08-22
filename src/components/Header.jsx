@@ -4,10 +4,13 @@ import { FiShoppingCart } from "react-icons/fi";
 function Header() {
     return (
         <div className='header'>
-            <div className="header__links">
-                <Link to='/'>Shop</Link>
-                <Link to='/cart'><FiShoppingCart size={30}/></Link>
+            <div className="container">
+                <div className="header__links">
+                    <Link to='/'>Shop</Link>
+                    <Link to='/cart'><FiShoppingCart size={30} /></Link>
+                </div>
             </div>
+
         </div>
     )
 }
