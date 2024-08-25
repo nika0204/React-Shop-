@@ -14,7 +14,7 @@ function Product(props) {
                 <div className="product__price">${item.price}</div>
                 <p className="product__description">{item.description}</p>
                 <div className="grop__btn">
-                    <button onClick={(id) =>  context.addToCart(id)} id={item.id} className='btn btn__add'>Add to cart</button>
+                    <button onClick={(id) =>  context.addToCart(item)}  className='btn btn__add'>Add to cart</button>
                     <button className='btn btn__like'>Like</button>
                 </div>
             </li>

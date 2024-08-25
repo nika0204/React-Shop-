@@ -11,14 +11,16 @@ export const ShopContextProvider = ({ children }) => {
     }, [])
 
 
-    const [cart, setCart] = useState();
+    const [cart, setCart] = useState([]);
 
 
     const addToCart = (id) => {
-console.log(id.target.id)
+        id["quant"] = 1;
+        setCart([...cart, id])
     };
+    console.log(cart)
 
-    const contextValue = { product, setProduct, addToCart }
+    const contextValue = { product, setProduct, addToCart, cart}
     return <ShopContext.Provider value={contextValue}>
         {children}
     </ShopContext.Provider>
