@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import SingleProduct from '../pages/singleProduct/singleProduct';
+
 
 
 export const ShopContext = createContext();
@@ -10,25 +10,36 @@ export const ShopContextProvider = ({ children }) => {
             .then(res => res.json())
             .then(json => setProduct(json))
     }, [])
+
+
+    const getCategory = (id) => {
+        // console.log(id.target.id)
+        const category = id.target.id;
+        category !== "all" ?
+            fetch(`https://fakestoreapi.com/products/category/${category}`)
+                .then(res => res.json())
+                .then(json => setProduct(json)) : fetch('https://fakestoreapi.com/products')
+                    .then(res => res.json())
+                    .then(json => setProduct(json))
+    }
+
+
     const [cart, setCart] = useState([]);
-
-
-    
-
     const addToCart = (product) => {
+        console.log(product)
         setCart(prevCart => {
-          const existingProductIndex = prevCart.findIndex(prod => prod.id === product.id);
-    console.log(existingProductIndex)
-          if (existingProductIndex !== -1) {
-            const updatedCart = [...prevCart];
-            updatedCart[existingProductIndex].quant += 1;
-            return updatedCart;
-          } else {
-            return [...prevCart, { ...product, quant: 1 }];
-          }
+            const existingProductIndex = prevCart.findIndex(prod => prod.id === product.id);
+            // console.log(existingProductIndex)
+            if (existingProductIndex !== -1) {
+                const updatedCart = [...prevCart];
+                updatedCart[existingProductIndex].quant += 1;
+                return updatedCart;
+            } else {
+                return [...prevCart, { ...product, quant: 1 }];
+            }
         });
-      };
-      
+    };
+
     // console.log(cart)
 
     const [quantity, setQuantity] = useState()
@@ -38,7 +49,7 @@ export const ShopContextProvider = ({ children }) => {
     const removeOneFromCart = (id) => {
         if (id.quant <= 1) {
             const idToRemove = id.id
-            setCart(cart.filter(prod => prod.id !== idToRemove)) //need to rewrite
+            setCart(cart.filter(prod => prod.id !== idToRemove))
         } else {
             setQuantity(id.quant -= 1)
 
@@ -48,21 +59,20 @@ export const ShopContextProvider = ({ children }) => {
     const remove = (id) => {
         const idToRemove = id.id
         setCart(cart.filter(prod => prod.id !== idToRemove))
-        console.log(cart.filter(prod => prod.id !== idToRemove))
-
     }
 
-    console.log(cart)
+
 
     const contextValue = {
         product,
         setProduct,
+        getCategory,
         addToCart,
         cart,
         addOneToCart,
         removeOneFromCart,
         remove,
-        
+
     }
     return <ShopContext.Provider value={contextValue}>
         {children}

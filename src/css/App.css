@@ -1,86 +1,112 @@
-a{
+a {
   text-decoration: none;
 }
+
 
 button{
   padding-block: 0;
   padding-inline: 0;
   border-width: 0;
-  cursor: pointer;
   background-color: inherit;
 }
 
-.header__links{
+body{
+  font-size: 16px;
+}
+.header{
+  margin-bottom:3rem;
+}
+.header__links {
   align-items: center;
   display: flex;
-  gap: 20px;
- 
+  gap: 1.2rem;
+  margin: 1rem;
+
 }
 
-.container{
-  max-width: 1280px;
+.container {
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 0.6rem;
   text-align: center;
 }
 
-.list__products{
+.list__products {
   display: flex;
-  gap: 20px;
+  gap: 1.1rem;
   flex-wrap: wrap;
   list-style: none;
   justify-content: center;
   align-items: flex-end;
-  padding: 0 10px;
+  padding: 0 0.6rem;
 }
 
-.product{
-  max-width: 400px;
-  
+.product {
+  max-width: 25rem;
+
 }
 
-.product__image{
-  width: 300px;
-  height: 300px;
+.product__image {
+  width:18.75rem;
+  height: 18.75rem;
   object-fit: contain;
 }
 
-.product__title{
+.product__title {
   display: -webkit-box;
-  -webkit-line-clamp: 1; 
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.product__description{
-  display: -webkit-box;
-  -webkit-line-clamp: 3; 
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.grop__btn{
+.product__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grop__btn {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 0.99rem;
 }
 
-.btn{
+.btn {
   background-color: transparent;
   border: 1px solid #000;
   border-radius: 10%;
-  padding: 2px 10px;
+  padding: 0.1rem 0.6rem;
   cursor: pointer;
 }
 
-.cart__wrap{
+.btn__sort{
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+}
+
+.shop__btn{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.cart__wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.cart__btn-wrap{
+.cart__btn-wrap {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.99rem;
 }
 
+@media (max-width: 855px) {
+  body{
+    font-size: 20px;
+  }
+}

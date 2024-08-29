@@ -20,12 +20,15 @@ function Cart() {
     </div>
   ))
 
-  
+
   return (
     <div>
-      {
-        context.cart.length === 0 ? 'Cart is empty' : productInCart
-      }
+      <div className="container">
+        {
+          context.cart.length === 0 ? 'Cart is empty' : productInCart
+        }
+      </div>
+
     </div>
   )
 }
