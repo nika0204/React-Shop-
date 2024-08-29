@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header';
 import Shop from './pages/shop/Shop';
 import Cart from './pages/cart/Cart'
+import SingleProduct from './pages/SingleProduct/SingleProduct';
 import { ShopContextProvider } from './context/shopContext';
+
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Shop />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/product/:id' element={<SingleProduct />} />
           </Routes>
         </Router>
       </ShopContextProvider>

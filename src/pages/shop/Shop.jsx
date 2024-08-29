@@ -3,8 +3,9 @@ import Product from './Product'
 import { ShopContext } from '../../context/shopContext'
 
 
-function Shop() {
 
+function Shop() {
+   
    const context = useContext(ShopContext)
 
     return (
@@ -12,8 +13,9 @@ function Shop() {
             <div className="container">
                 <ul className="list__products">
                     {context.product.map((item) => (
-                        <Product item={item} key={item.id}/>
-                    ))}
+                       <Product item={item} key={item.id}/>
+                   ))}
+                   
                 </ul>
             </div>
         </>
