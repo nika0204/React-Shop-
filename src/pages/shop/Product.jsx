@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { ShopContext } from '../../context/shopContext'
 import { useNavigate } from 'react-router-dom';
-import SingleProduct from '../SingleProduct/SingleProduct';
+import SingleProduct from '../singleProduct/singleProduct';
 
 
 function Product(props) {
@@ -16,9 +16,9 @@ function Product(props) {
 
     return (
         <>
-            <li className='product' onClick={() => handleProductClick(item)} item={item} >
-                <img src={item.image} className='product__image' />
-                <div className="product__title">{item.title}</div>
+            <li className='product' item={item} >
+                <img src={item.image} className='product__image'  onClick={() => handleProductClick(item)}/>
+                <div className="product__title"  onClick={() => handleProductClick(item)}>{item.title}</div>
                 <div className="product__price">${item.price}</div>
                 <p className="product__description">{item.description}</p>
                 <div className="grop__btn">
