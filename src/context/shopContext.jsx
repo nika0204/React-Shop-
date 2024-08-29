@@ -13,15 +13,22 @@ export const ShopContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
 
-    const addToCart = (id) => {
-        // console.log(id)
-        if (id.quant === 1 || id.quant > 1) {
-            id.quant += 1;
-        } else {
-            id["quant"] = 1;
-            setCart([...cart, id])
-        }
-    };
+    
+
+    const addToCart = (product) => {
+        setCart(prevCart => {
+          const existingProductIndex = prevCart.findIndex(prod => prod.id === product.id);
+    console.log(existingProductIndex)
+          if (existingProductIndex !== -1) {
+            const updatedCart = [...prevCart];
+            updatedCart[existingProductIndex].quant += 1;
+            return updatedCart;
+          } else {
+            return [...prevCart, { ...product, quant: 1 }];
+          }
+        });
+      };
+      
     // console.log(cart)
 
     const [quantity, setQuantity] = useState()
@@ -31,7 +38,7 @@ export const ShopContextProvider = ({ children }) => {
     const removeOneFromCart = (id) => {
         if (id.quant <= 1) {
             const idToRemove = id.id
-            setCart(cart.filter(prod => prod.id !== idToRemove))
+            setCart(cart.filter(prod => prod.id !== idToRemove)) //need to rewrite
         } else {
             setQuantity(id.quant -= 1)
 
@@ -41,9 +48,11 @@ export const ShopContextProvider = ({ children }) => {
     const remove = (id) => {
         const idToRemove = id.id
         setCart(cart.filter(prod => prod.id !== idToRemove))
+        console.log(cart.filter(prod => prod.id !== idToRemove))
+
     }
 
-
+    console.log(cart)
 
     const contextValue = {
         product,

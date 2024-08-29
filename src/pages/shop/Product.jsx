@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { ShopContext } from '../../context/shopContext'
 import { useNavigate } from 'react-router-dom';
-import SingleProduct from '../singleProduct/singleProduct';
+
 
 
 function Product(props) {
