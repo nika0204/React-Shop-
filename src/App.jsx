@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Shop from './pages/shop/Shop';
 import Cart from './pages/cart/Cart'
 import SingleProduct from './pages/singleProduct/singleProduct.jsx';
+import Like from './pages/Like/Like.jsx'
 import { ShopContextProvider } from './context/shopContext';
 
 
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Shop />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/like' element={<Like />} />
             <Route path='/product/:id' element={<SingleProduct />} />
           </Routes>
         </Router>

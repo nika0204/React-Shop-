@@ -26,7 +26,6 @@ export const ShopContextProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const addToCart = (product) => {
-        console.log(product)
         setCart(prevCart => {
             const existingProductIndex = prevCart.findIndex(prod => prod.id === product.id);
             // console.log(existingProductIndex)
@@ -61,7 +60,15 @@ export const ShopContextProvider = ({ children }) => {
         setCart(cart.filter(prod => prod.id !== idToRemove))
     }
 
-
+    const [like, setLike] = useState([])
+    const likeProduct = (item) => {
+        // setLike([...like, item])
+        if (like.includes(item)) {
+            setLike(like.filter(likedItem => likedItem !== item));
+        } else {
+            setLike([...like, item]);
+        }
+    }
 
     const contextValue = {
         product,
@@ -72,7 +79,8 @@ export const ShopContextProvider = ({ children }) => {
         addOneToCart,
         removeOneFromCart,
         remove,
-
+        like,
+        likeProduct
     }
     return <ShopContext.Provider value={contextValue}>
         {children}

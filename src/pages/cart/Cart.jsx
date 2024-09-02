@@ -24,11 +24,19 @@ function Cart() {
   return (
     <div>
       <div className="container">
-        {
+        <div className="wrrap">
+
+       
+        <div className="cart">
+          {
           context.cart.length === 0 ? 'Cart is empty' : productInCart
         }
+        </div>
+        <div className="cart__total">
+          <p>Total Price: </p>
+        </div>
       </div>
-
+ </div>
     </div>
   )
 }
