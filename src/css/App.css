@@ -1,5 +1,6 @@
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 
@@ -131,14 +132,7 @@ body {
   gap: 0.99rem;
 }
 
-@media (max-width: 855px) {
-  body {
-    font-size: 20px;
-  }
-  button{
-    font-size: 18px;
-  }
-}
+
 
 .single__rating {
   display: flex;
@@ -150,4 +144,35 @@ body {
 
 .wrrap{
   display: flex;
+
+justify-content: center;
+}
+
+.cart__total{
+  border: 1px solid #000;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  font-weight: 800;
+  max-width: fit-content;
+  height: 5rem;
+} 
+
+@media (max-width: 855px) {
+  body {
+    font-size: 20px;
+  }
+  button{
+    font-size: 18px;
+  }
+  
+}
+
+
+
+@media (max-width: 555px) {
+  
+  .wrrap{
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+   }
 }

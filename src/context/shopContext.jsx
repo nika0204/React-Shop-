@@ -39,6 +39,10 @@ export const ShopContextProvider = ({ children }) => {
         });
     };
 
+    
+
+
+   
     // console.log(cart)
 
     const [quantity, setQuantity] = useState()

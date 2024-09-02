@@ -19,8 +19,8 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Shop />} />
-            <Route path='/cart' element={<Cart />} />
             <Route path='/like' element={<Like />} />
+            <Route path='/cart' element={<Cart />} />
             <Route path='/product/:id' element={<SingleProduct />} />
           </Routes>
         </Router>

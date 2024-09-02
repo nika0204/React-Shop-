@@ -11,8 +11,8 @@ function Header() {
             <div className="container">
                 <div className="header__links">
                     <Link to='/'>Home</Link>
-                    <Link to='/cart'><FiShoppingCart size={30} /> {context.cart.length}</Link>
                     <Link to='/like'> Like</Link>
+                    <Link to='/cart'><FiShoppingCart size={30} /> {context.cart.length}</Link>
                 </div>
             </div>
 

@@ -20,23 +20,40 @@ function Cart() {
     </div>
   ))
 
+  const totalOne = [];
+  const cart = context.cart
+  for (const item of cart) {
+    totalOne.push(item.quant * item.price)
+    console.log(totalOne)
+  }
+
+
+  let sumOftotalOne = 0;
+
+for (const item of totalOne) {
+  sumOftotalOne += item
+}
+
+console.log(sumOftotalOne)
+
+  // console.log(context.cart[0].id)
+
 
   return (
     <div>
       <div className="container">
         <div className="wrrap">
-
+          <div className="cart">
+            {
+              context.cart.length === 0 ? 'Cart is empty' : productInCart
+            }
+          </div>
+           <div className="cart__total">
+            Total Price: {sumOftotalOne.toFixed(2)}
+          </div>
+        </div>
        
-        <div className="cart">
-          {
-          context.cart.length === 0 ? 'Cart is empty' : productInCart
-        }
-        </div>
-        <div className="cart__total">
-          <p>Total Price: </p>
-        </div>
       </div>
- </div>
     </div>
   )
 }
